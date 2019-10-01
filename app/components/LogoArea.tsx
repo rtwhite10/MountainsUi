@@ -32,10 +32,12 @@ const LogoArea: React.FC = () => {
   return (
     <>
       <View style={styles.logoContainer}>
-        <View style={styles.icon}>
-        <Icon name="cloud" size={80} color="#900" />
+        <View style={styles.ItemContainer}>
+          <View style={styles.icon}>
+            <Icon name="cloud" size={80} color="#9DF0FF" />
+          </View>
+          <Text style={styles.text}>Mountains</Text>
         </View>
-        <Text style={styles.text}>Mountains</Text>
       </View>
     </>
   );
@@ -43,9 +45,15 @@ const LogoArea: React.FC = () => {
 
 const styles = StyleSheet.create({
   logoContainer: {
-      marginTop: 50,
       display: "flex",
-      alignItems: "center"
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center"
+  },
+  ItemContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   text: {
       color: `${secondaryColor}`,

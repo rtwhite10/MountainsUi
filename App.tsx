@@ -7,6 +7,7 @@
  */
 import {primaryColor} from './app/modules/styles'
 import LogoArea from './app/components/LogoArea'
+import LoginArea from './app/components/LoginArea'
 
 import React from 'react';
 import {
@@ -16,6 +17,7 @@ import {
   View,
   Text,
   StatusBar,
+  Image,
 } from 'react-native';
 
 import {
@@ -31,6 +33,10 @@ const App: React.FC = () => {
     <>
       <View style={styles.layoutArea}>
         <LogoArea />
+        <LoginArea />
+        <View style={styles.image}>
+          <Image source={require('./app/assets/images/mountains.png')}/>
+        </View>
       </View>
     </>
   );
@@ -44,6 +50,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor:`${primaryColor}`
+  },
+  image: {
+   flex: 1
   }
 });
 
