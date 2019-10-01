@@ -29,7 +29,7 @@ const LogoArea: React.FC = () => {
   return (
     <>
       <View>
-        <Text style={styles.logoContainer}>Cloudy</Text>
+        <Text style={styles.logoContainer}>Mountains</Text>
       </View>
     </>
   );
@@ -38,7 +38,8 @@ const LogoArea: React.FC = () => {
 const styles = StyleSheet.create({
   logoContainer: {
       color: `${secondaryColor}`,
-      fontSize: 36
+      fontSize: 36,
+      fontFamily: "AmaticSC-Regular"
 
   }
 });

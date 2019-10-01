@@ -16,6 +16,8 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MountainsUiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MountainsUiTests.m */; };
+		52CB3D702343CF38005FB16E /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52CB3D6F2343CF12005FB16E /* AmaticSC-Regular.ttf */; };
+		52CB3D712343CF3C005FB16E /* Amatic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52CB3D6E2343CF0E005FB16E /* Amatic-Bold.ttf */; };
 		91B911CC1FDB5C0C13324690 /* libPods-MountainsUi-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A29EDECC5C5F9F62EB5AA1 /* libPods-MountainsUi-tvOSTests.a */; };
 		975C947B07CFCB45E36084C0 /* libPods-MountainsUi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1450855411F3E7C1D2A8DF11 /* libPods-MountainsUi.a */; };
 		A43A3812EE8713BCD98EF3E4 /* libPods-MountainsUiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585FB326F641829E941FB821 /* libPods-MountainsUiTests.a */; };
@@ -60,6 +62,8 @@
 		2D02E4901E0B4A5D006451C7 /* MountainsUi-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MountainsUi-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30343DE91170D5BCDF6577C8 /* Pods-MountainsUi-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MountainsUi-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MountainsUi-tvOS/Pods-MountainsUi-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		34CEE2E137F006B68884AD56 /* Pods-MountainsUi-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MountainsUi-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MountainsUi-tvOSTests/Pods-MountainsUi-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		52CB3D6E2343CF0E005FB16E /* Amatic-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amatic-Bold.ttf"; sourceTree = "<group>"; };
+		52CB3D6F2343CF12005FB16E /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		585FB326F641829E941FB821 /* libPods-MountainsUiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MountainsUiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7D3300FCCB7A877C9D12C3 /* Pods-MountainsUiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MountainsUiTests.debug.xcconfig"; path = "Target Support Files/Pods-MountainsUiTests/Pods-MountainsUiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A1A7BC5AC36694C4E5C778C /* Pods-MountainsUi-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MountainsUi-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MountainsUi-tvOS/Pods-MountainsUi-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		52CB3D6D2343CF04005FB16E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				52CB3D6F2343CF12005FB16E /* AmaticSC-Regular.ttf */,
+				52CB3D6E2343CF0E005FB16E /* Amatic-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MountainsUiTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				52CB3D6D2343CF04005FB16E /* Fonts */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				8E592CAE51C086C9735A3F0A /* Pods */,
 			);
@@ -340,7 +354,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB3D702343CF38005FB16E /* AmaticSC-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				52CB3D712343CF3C005FB16E /* Amatic-Bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
