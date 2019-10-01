@@ -7,6 +7,7 @@
  */
 import {primaryColor} from './app/modules/styles'
 import LogoArea from './app/components/LogoArea'
+
 import React from 'react';
 import {
   SafeAreaView,
@@ -41,8 +42,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignContent: 'center',
+    alignItems: 'center',
     backgroundColor:`${primaryColor}`
   }
 });

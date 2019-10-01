@@ -6,6 +6,9 @@
  * @flow
  */
 import {secondaryColor} from '../modules/styles'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 import React from 'react';
 import {
   SafeAreaView,
@@ -28,8 +31,11 @@ import {
 const LogoArea: React.FC = () => {
   return (
     <>
-      <View>
-        <Text style={styles.logoContainer}>Mountains</Text>
+      <View style={styles.logoContainer}>
+        <View style={styles.icon}>
+        <Icon name="cloud" size={80} color="#900" />
+        </View>
+        <Text style={styles.text}>Mountains</Text>
       </View>
     </>
   );
@@ -37,10 +43,18 @@ const LogoArea: React.FC = () => {
 
 const styles = StyleSheet.create({
   logoContainer: {
+      marginTop: 50,
+      display: "flex",
+      alignItems: "center"
+  },
+  text: {
       color: `${secondaryColor}`,
       fontSize: 36,
-      fontFamily: "AmaticSC-Regular"
-
+      fontFamily: "Amatic-Bold",
+      letterSpacing: 10
+  },
+  icon: {
+    marginRight: 2
   }
 });
 
