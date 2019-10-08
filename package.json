@@ -1,5 +1,9 @@
 {
-  "rnpm": { "assets": [ "app/assets/font-icons" ] },
+  "rnpm": {
+    "assets": [
+      "app/assets/font-icons"
+    ]
+  },
   "name": "MountainsUi",
   "version": "0.0.1",
   "private": true,
@@ -13,7 +17,10 @@
     "@types/react-native-vector-icons": "^6.4.4",
     "react": "16.8.1",
     "react-native": "0.61.1",
+    "react-native-gesture-handler": "^1.4.1",
     "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.9.3",
     "typescript": "^3.6.3"
   },
   "devDependencies": {

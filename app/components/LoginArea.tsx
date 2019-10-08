@@ -28,8 +28,15 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {NavigationStackProp} from 'react-navigation-stack'
 
-const LoginArea: React.FC = () => {
+type Props = {
+  navigation: NavigationStackProp< string >;
+};
+
+
+const LoginArea: React.FC <Props> = ( props ) => {
+  
   return (
     <>
       <View style={styles.InputContainer}>
@@ -44,7 +51,7 @@ const LoginArea: React.FC = () => {
         <TouchableHighlight><Text style={styles.Text}>Forgot password?</Text></TouchableHighlight>
         <View style={styles.ButtonContainer}>
             <TouchableHighlight style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>SIGN IN</Text></TouchableHighlight>
-            <TouchableHighlight style={styles.ButtonRight} onPress={() => console.log('Simple Button pressed')}><Text style={{color: "#fff"}}>SIGN UP</Text></TouchableHighlight>
+            <TouchableHighlight style={styles.ButtonRight} onPress={() => props.navigation.navigate('SignUpRoute')}><Text style={{color: "#fff"}}>SIGN UP</Text></TouchableHighlight>
         </View>
       </View>
     </>

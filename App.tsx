@@ -1,59 +1,27 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-import {primaryColor} from './app/modules/styles'
-import LogoArea from './app/components/LogoArea'
-import LoginArea from './app/components/LoginArea'
+import LoginScreen from './app/screens/LoginScreen'
+import SignUpScreen from './app/screens/SignUpScreen'
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-} from 'react-native';
+import { createAppContainer,  createSwitchNavigator } from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// const AppStack = createStackNavigator(
+//   {
+//     Home: HomeScreen
+//   }
+// )
 
-const App: React.FC = () => {
-  return (
-    <>
-      <View style={styles.layoutArea}>
-        <LogoArea />
-        <LoginArea />
-        <View style={styles.image}>
-          <Image source={require('./app/assets/images/mountains.png')}/>
-        </View>
-      </View>
-    </>
-  );
-};
-
-const styles = StyleSheet.create({
-  layoutArea: {
-    height: '100%',
-    width: '100%',
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor:`${primaryColor}`
-  },
-  image: {
-   flex: 1
+const AuthStack = createStackNavigator(
+  {
+    
+    SignUpRoute: SignUpScreen,
+    LoginRoute: LoginScreen,
   }
-});
+)
 
-export default App;
+
+
+export default createAppContainer(createSwitchNavigator(
+{
+  Auth: AuthStack
+}
+));
