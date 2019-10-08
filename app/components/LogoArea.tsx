@@ -46,7 +46,7 @@ const LogoArea: React.FC = () => {
 const styles = StyleSheet.create({
   logoContainer: {
       display: "flex",
-      flex: 1,
+      flex: 2,
       alignItems: "center",
       justifyContent: "center"
   },

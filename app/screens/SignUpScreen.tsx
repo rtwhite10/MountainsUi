@@ -9,6 +9,7 @@ import {primaryColor, secondaryColor} from '../modules/styles'
 import LogoArea from '../components/LogoArea'
 import LoginArea from '../components/LoginArea'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { withNavigation, NavigationAction } from 'react-navigation';
 
 import React from 'react';
 import {
@@ -20,36 +21,44 @@ import {
   TextInput,
   StatusBar,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 
 
-const SignUpScreen: React.FC = (props) => {
-  return (
-    <>
-      <View style={styles.layoutArea}>
-          <LogoArea />
-          <View style={styles.loginContainer}>
-            <View style={styles.TextFieldContainer}>
-                <Icon name="user" size={30} color="#9DF0FF" />
-                <TextInput style={styles.InputFields} placeholder="Email"/>
-            </View>
-            <View style={styles.TextFieldContainer}>
-                <Icon name="key" size={24} color="#9DF0FF" />
-                <TextInput style={styles.InputFields} placeholder="Password"/>
-            </View>
-            <View style={styles.TextFieldContainer}>
-                <Icon name="key" size={24} color="#9DF0FF" />
-                <TextInput style={styles.InputFields} placeholder="Password"/>
-            </View>
-            <View style={styles.ButtonContainer}>
-                <TouchableHighlight style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>LOG IN</Text></TouchableHighlight>
-                <TouchableHighlight style={styles.ButtonRight} onPress={() => console.log('Simple Button pressed')}><Text style={{color: "#000"}}>SIGN UP</Text></TouchableHighlight>
-            </View>
+class SignUpScreen extends React.Component <{navigation: any}> {
+ 
+  render() {
+    const {navigate} = this.props.navigation;
+    return (
+      <>
+        <View style={styles.layoutArea}>
+            <LogoArea />
+            <View style={styles.loginContainer}>
+              <View style={styles.TextFieldContainer}>
+                  <Icon name="user" size={30} color="#9DF0FF" />
+                  <TextInput style={styles.InputFields} placeholder="Email"/>
+              </View>
+              <View style={styles.TextFieldContainer}>
+                  <Icon name="key" size={24} color="#9DF0FF" />
+                  <TextInput style={styles.InputFields} placeholder="Password"/>
+              </View>
+              <View style={styles.TextFieldContainer}>
+                  <Icon name="key" size={24} color="#9DF0FF" />
+                  <TextInput style={styles.InputFields} placeholder="Password"/>
+              </View>
+              <View style={styles.ButtonContainer}>
+                  <TouchableOpacity style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>LOG IN</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.ButtonRight} onPress={() => navigate('LoginScreen')}><Text style={{color: "#000"}}>SIGN UP</Text></TouchableOpacity>
+              </View>
+          </View>
+          {/* <View style={styles.image}>
+            <Image source={require('../assets/images/mountains.png')}/>
+          </View> */}
         </View>
-      </View>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -61,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor:`${primaryColor}`
   },
   loginContainer: {
-      flex: 2
+      flex: 5
   },
   image: {
    flex: 1
@@ -79,11 +88,19 @@ const styles = StyleSheet.create({
     borderBottomColor: `${secondaryColor}`,
     marginTop: 25
 },
+ButtonContainer: {
+  display: 'flex',
+  flexDirection: "row",
+  justifyContent: "space-around",
+  alignItems: "center",
+  marginTop: 30
+},
 ButtonLeft: {
     display: 'flex',
     justifyContent: "center",
     alignItems: "center",
-    flex: 1
+    flex: 1,
+
 },
 ButtonRight: {
     display: 'flex',
@@ -93,16 +110,8 @@ ButtonRight: {
     height: 50,
     borderRadius: 25,
     backgroundColor: "#fff",
-    flex: 1
+    flex: 2
 },
-ButtonContainer: {
-    display: 'flex',
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    marginTop: 30
-},
-
 });
 
-export default SignUpScreen;
+export default withNavigation(SignUpScreen);
