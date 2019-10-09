@@ -29,7 +29,7 @@ import {
 class SignUpScreen extends React.Component <{navigation: any}> {
  
   render() {
-    const {navigate} = this.props.navigation;
+    const {navigate, push} = this.props.navigation;
     return (
       <>
         <View style={styles.layoutArea}>
@@ -47,14 +47,17 @@ class SignUpScreen extends React.Component <{navigation: any}> {
                   <Icon name="key" size={24} color="#9DF0FF" />
                   <TextInput style={styles.InputFields} placeholder="Password"/>
               </View>
-              <View style={styles.ButtonContainer}>
+              <View>
+                <View style={styles.ButtonContainer}>
                   <TouchableOpacity style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>LOG IN</Text></TouchableOpacity>
                   <TouchableOpacity style={styles.ButtonRight} onPress={() => navigate('LoginScreen')}><Text style={{color: "#000"}}>SIGN UP</Text></TouchableOpacity>
+                </View>
+                <View style={styles.TextContainer}>
+                  <TouchableOpacity onPress={() => push('home')}><Text style={styles.text}>Already signed up?</Text></TouchableOpacity>
+                </View>
               </View>
+              
           </View>
-          {/* <View style={styles.image}>
-            <Image source={require('../assets/images/mountains.png')}/>
-          </View> */}
         </View>
       </>
     );
@@ -70,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor:`${primaryColor}`
   },
   loginContainer: {
-      flex: 5
+      flex: 4
   },
   image: {
    flex: 1
@@ -87,31 +90,40 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: `${secondaryColor}`,
     marginTop: 25
-},
-ButtonContainer: {
-  display: 'flex',
-  flexDirection: "row",
-  justifyContent: "space-around",
-  alignItems: "center",
-  marginTop: 30
-},
-ButtonLeft: {
-    display: 'flex',
+  },
+  TextContainer: {
     justifyContent: "center",
     alignItems: "center",
-    flex: 1,
+    marginTop: 50
+  },
+  text: {
+    color: `${secondaryColor}`
+  },
 
-},
-ButtonRight: {
+  ButtonContainer: {
     display: 'flex',
-    justifyContent: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
     alignItems: "center",
-    // width: 100,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "#fff",
-    flex: 2
-},
-});
+    marginTop: 30
+  },
+  ButtonLeft: {
+      display: 'flex',
+      justifyContent: "center",
+      alignItems: "center",
+      flex: 1,
+
+  },
+  ButtonRight: {
+      display: 'flex',
+      justifyContent: "center",
+      alignItems: "center",
+      // width: 100,
+      height: 50,
+      borderRadius: 25,
+      backgroundColor: "#fff",
+      flex: 2
+  },
+  });
 
 export default withNavigation(SignUpScreen);

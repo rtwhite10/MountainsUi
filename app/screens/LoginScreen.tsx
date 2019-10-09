@@ -42,7 +42,7 @@ class LoginScreen extends React.Component<{navigation: any}> {
               </View>
               <TouchableHighlight><Text style={styles.Text}>Forgot password?</Text></TouchableHighlight>
               <View style={styles.ButtonContainer}>
-                  <TouchableOpacity style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>SIGN IN</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.ButtonLeft} onPress={() => this.props.navigation.navigate('HomeScreen')}><Text>SIGN IN</Text></TouchableOpacity>
                   <TouchableOpacity style={styles.ButtonRight} onPress={() => this.props.navigation.navigate('SignUp')}><Text style={{color: "#fff"}}>SIGN UP</Text></TouchableOpacity>
               </View>
           </View>

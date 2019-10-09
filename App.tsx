@@ -25,8 +25,14 @@ const AuthStack = createStackNavigator(
 
 const AppStack = createStackNavigator(
   {
-    home: {
+    HomeScreen: {
       screen: HomeScreen
+    }
+  },
+  {
+  headerMode: 'none',
+  navigationOptions: {
+      headerVisible: false,
     }
   }
 )
@@ -36,6 +42,7 @@ const AppStack = createStackNavigator(
 export default createAppContainer(createSwitchNavigator(
 {
   Auth: AuthStack,
-  App: AppStack
+  App: AppStack,
 }
+
 ));
