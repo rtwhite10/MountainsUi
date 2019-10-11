@@ -11,7 +11,7 @@ import LoginArea from '../components/LoginArea'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { withNavigation, NavigationAction } from 'react-navigation';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -26,43 +26,50 @@ import {
 } from 'react-native';
 
 
-class SignUpScreen extends React.Component <{navigation: any}> {
- 
-  render() {
-    const {navigate, push} = this.props.navigation;
-    return (
-      <>
-        <View style={styles.layoutArea}>
-            <LogoArea />
-            <View style={styles.loginContainer}>
-              <View style={styles.TextFieldContainer}>
-                  <Icon name="user" size={30} color="#9DF0FF" />
-                  <TextInput style={styles.InputFields} placeholder="Email"/>
-              </View>
-              <View style={styles.TextFieldContainer}>
-                  <Icon name="key" size={24} color="#9DF0FF" />
-                  <TextInput style={styles.InputFields} placeholder="Password"/>
-              </View>
-              <View style={styles.TextFieldContainer}>
-                  <Icon name="key" size={24} color="#9DF0FF" />
-                  <TextInput style={styles.InputFields} placeholder="Password"/>
-              </View>
-              <View>
-                <View style={styles.ButtonContainer}>
-                  <TouchableOpacity style={styles.ButtonLeft} onPress={() => console.log('Simple Button pressed')}><Text>LOG IN</Text></TouchableOpacity>
-                  <TouchableOpacity style={styles.ButtonRight} onPress={() => navigate('LoginScreen')}><Text style={{color: "#000"}}>SIGN UP</Text></TouchableOpacity>
-                </View>
-                <View style={styles.TextContainer}>
-                  <TouchableOpacity onPress={() => push('home')}><Text style={styles.text}>Already signed up?</Text></TouchableOpacity>
-                </View>
-              </View>
-              
-          </View>
-        </View>
-      </>
-    );
+const SignUpScreen = (props: any) => {
+  const [emailState, setEmailState] = useState('')
+  const [passwordState, setPasswordState] = useState('')
+
+  const handleCheckInput = () => {
+    if (emailState != '' && passwordState != '') {
+      return 'HomeScreen'
+    } else {
+      return ''
+    }
   }
-};
+
+  const {navigate, push} = props.navigation;
+  return (
+    <>
+      <View style={styles.layoutArea}>
+          <LogoArea />
+          <View style={styles.loginContainer}>
+            <View style={styles.TextFieldContainer}>
+                <Icon name="user" size={30} color="#9DF0FF" />
+                <TextInput style={styles.InputFields} placeholder="Email" onChangeText={(text)=> setEmailState(text)}/>
+            </View>
+            <View style={styles.TextFieldContainer}>
+                <Icon name="key" size={24} color="#9DF0FF" />
+                <TextInput textContentType={'password'} multiline={false} secureTextEntry={true} style={styles.InputFields} placeholder="Password" onChangeText={(text)=> setPasswordState(text)}/>
+            </View>
+            <View style={styles.TextFieldContainer}>
+                <Icon name="key" size={24} color="#9DF0FF" />
+                <TextInput textContentType={'password'} multiline={false} secureTextEntry={true} style={styles.InputFields} placeholder="Password" onChangeText={(text)=> setPasswordState(text)}/>
+            </View>
+            <View>
+              <View style={styles.ButtonContainer}>
+                <TouchableOpacity style={styles.ButtonRight} onPress={() => navigate(handleCheckInput())}><Text style={{color: "#000"}}>SIGN UP</Text></TouchableOpacity>
+              </View>
+              <View style={styles.TextContainer}>
+                <TouchableOpacity onPress={() => push('home')}><Text style={styles.text}>Already signed up?</Text></TouchableOpacity>
+              </View>
+            </View>
+            
+        </View>
+      </View>
+    </>
+  );
+}
 
 const styles = StyleSheet.create({
   layoutArea: {
@@ -81,7 +88,8 @@ const styles = StyleSheet.create({
   InputFields: {
     width: 250,
     height: 40,
-    paddingLeft: 20
+    paddingLeft: 20,
+    color: `${secondaryColor}`
     
   },
   TextFieldContainer: {
@@ -126,4 +134,4 @@ const styles = StyleSheet.create({
   },
   });
 
-export default withNavigation(SignUpScreen);
+export default SignUpScreen;

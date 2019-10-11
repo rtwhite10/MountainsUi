@@ -1,10 +1,11 @@
 import {primaryColor, secondaryColor} from '../modules/styles'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import OverlayComponent from 'react-native-maps'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoArea from '../components/LogoArea'
 import LoginArea from '../components/LoginArea'
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,41 +19,29 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-interface MyProps {
-    region: object
-  }
-
-class HomeScreen extends React.Component<MyProps, { region: any }> {
-    constructor(props: MyProps) {
-        super(props);
-        this.state = { region: {
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-            }, 
-        };
+const HomeScreen = () => {
+  const [regionData, setRegionData] = useState({
+    region: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
     }
+  })
 
-    onRegionChange = (region: object) => {
-        this.setState({ region });
-      }
-
-    render() {
-        return(
-            <>
-                <View style={styles.container}>
-                    <MapView
-                        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-                        style={styles.map}
-                        region={this.state.region}
-                        onRegionChange={this.onRegionChange}
-                        >
-                    </MapView>
-                </View>
-            </>
-        )
-    }
+  return(
+    <>
+        <View style={styles.container}>
+            <MapView
+                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                style={styles.map}
+                region={regionData.region}
+                // onRegionChange={this.onRegionChange}
+                >
+            </MapView>
+        </View>
+    </>
+  )
 }
 
 const styles = StyleSheet.create({

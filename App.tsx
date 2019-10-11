@@ -8,6 +8,9 @@ import {createStackNavigator} from 'react-navigation-stack'
 
 const AuthStack = createStackNavigator(
   {
+    // home: {
+    //   screen: LoginScreen,
+    // },
     home: {
       screen: LoginScreen,
     },
@@ -43,6 +46,10 @@ export default createAppContainer(createSwitchNavigator(
 {
   Auth: AuthStack,
   App: AppStack,
+  
+ 
+  
+  
 }
 
 ));

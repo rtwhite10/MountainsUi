@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoArea from '../components/LogoArea'
 import LoginArea from '../components/LoginArea'
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,37 +24,62 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-class LoginScreen extends React.Component<{navigation: any}> {
-  render() {
+interface User {
+  email: string
+  password: string
+}
+
+const credentials = {
+  email: "Rtwhite10@gmail.com",
+  password: "Rt567890"
+}
+
+const LoginScreen = (props: any) => {
+    const [emailState, setEmailState] = useState('')
+    const [passwordState, setPasswordState] = useState('')
+
+    const handleAuthentication = () => {
+        if (emailState == credentials.email && passwordState == credentials.password) {
+            return('HomeScreen')
+        } else {
+            return ''
+        }
+    }
+
+    const handleToSignUp = () => {
+        return 'SignUp'
+    }
+
+
     return (
-      <>
-        <View style={styles.layoutArea}>
-          <LogoArea />
-          <>
-            <View style={styles.InputContainer}>
-              <View style={styles.TextFieldContainer}>
-                  <Icon name="user" size={30} color="#9DF0FF" />
-                  <TextInput style={styles.InputFields} placeholder="Email"/>
-              </View>
-              <View style={styles.TextFieldContainer}>
-                  <Icon name="key" size={24} color='#9DF0FF'/>
-                  <TextInput style={styles.InputFields} placeholder="Password"/>
-              </View>
-              <TouchableHighlight><Text style={styles.Text}>Forgot password?</Text></TouchableHighlight>
-              <View style={styles.ButtonContainer}>
-                  <TouchableOpacity style={styles.ButtonLeft} onPress={() => this.props.navigation.navigate('HomeScreen')}><Text>SIGN IN</Text></TouchableOpacity>
-                  <TouchableOpacity style={styles.ButtonRight} onPress={() => this.props.navigation.navigate('SignUp')}><Text style={{color: "#fff"}}>SIGN UP</Text></TouchableOpacity>
-              </View>
+        <>
+          <View style={styles.layoutArea}>
+            <LogoArea />
+            <>
+              <View style={styles.InputContainer}>
+                <View style={styles.TextFieldContainer}>
+                    <Icon name="user" size={30} color="#9DF0FF" />
+                    <TextInput style={styles.InputFields} onChangeText={(text)=> setEmailState(text)} placeholder="Email"/>
+                </View>
+                <View style={styles.TextFieldContainer}>
+                    <Icon name="key" size={24} color='#9DF0FF'/>
+                    <TextInput textContentType={'password'} multiline={false} secureTextEntry={true} style={styles.InputFields} onChangeText={(text)=> setPasswordState(text)} placeholder="Password"/>
+                </View>
+                <TouchableHighlight><Text style={styles.Text}>Forgot password?</Text></TouchableHighlight>
+                <View style={styles.ButtonContainer}>
+                    <TouchableOpacity style={styles.ButtonLeft} onPress={() => props.navigation.navigate(handleAuthentication())}><Text>SIGN IN</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.ButtonRight} onPress={() => props.navigation.navigate(handleToSignUp())}><Text style={{color: "#fff"}}>SIGN UP</Text></TouchableOpacity>
+                </View>
+            </View>
+          </>
+            <View style={styles.image}>
+              <Image source={require('../assets/images/mountains.png')}/>
+            </View>
           </View>
         </>
-          <View style={styles.image}>
-            <Image source={require('../assets/images/mountains.png')}/>
-          </View>
-        </View>
-      </>
-    );
-  }
-};
+      );
+}
+    
 
 const styles = StyleSheet.create({
   layoutArea: {
@@ -74,7 +99,8 @@ InputContainer: {
 InputFields: {
   width: 250,
   height: 40,
-  paddingLeft: 20
+  paddingLeft: 20,
+  color: `${secondaryColor}`
   
 },
 TextFieldContainer: {
