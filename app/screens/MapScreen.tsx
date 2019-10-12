@@ -4,6 +4,7 @@ import OverlayComponent from 'react-native-maps'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoArea from '../components/LogoArea'
 import LoginArea from '../components/LoginArea'
+import Maps from '../components/Maps'
 
 import React, {useState} from 'react';
 import {
@@ -19,7 +20,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const HomeScreen = () => {
+const MapScreen = () => {
   const [regionData, setRegionData] = useState({
     region: {
       latitude: 37.78825,
@@ -32,13 +33,7 @@ const HomeScreen = () => {
   return(
     <>
         <View style={styles.container}>
-            <MapView
-                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-                style={styles.map}
-                region={regionData.region}
-                // onRegionChange={this.onRegionChange}
-                >
-            </MapView>
+          <Maps />
         </View>
     </>
   )
@@ -64,6 +59,6 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
       },
 })
-export default HomeScreen
+export default MapScreen
 
 // API KEY MAPS AIzaSyDIJ_1vB3dLMMGbPMlPUpatvdkIzU09QKQ
